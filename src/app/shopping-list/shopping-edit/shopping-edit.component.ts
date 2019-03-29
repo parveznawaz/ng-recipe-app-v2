@@ -41,9 +41,20 @@ OnDestroy {
   onAddItem(form : NgForm) {
     const value = form.value;
     const newIngredient = new Ingredient(value.name, value.amount);
-    this
+    if(this.editMode) {
+      this.shoppingListService.updateIngredients(this.editedItemIndex, newIngredient);
+    } else{
+      this
       .shoppingListService
       .addIngredient(newIngredient);
+    }  
+    this.editMode = false;
+    form.reset();  
+  }
+
+  onClear() {
+    this.shoppingListForm.reset();
+    this.editMode=false;
   }
 
   ngOnDestroy() {
