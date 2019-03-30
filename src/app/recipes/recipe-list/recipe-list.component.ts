@@ -1,12 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Recipe} from '../recipe.model';
 import {RecipeService} from '../recipe.service';
 import {Router, ActivatedRoute} from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({selector: 'app-recipe-list', templateUrl: './recipe-list.component.html', styleUrls: ['./recipe-list.component.css']})
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent implements OnInit, OnDestroy {
   // @Output() recipeWasSelected = new EventEmitter<Recipe>();
   recipes : Recipe[];
+  subscription: Subscription;
   // recipes: Recipe[] = [   new Recipe('A Test Recipe',   'This is simply a
   // test',
   // 'https://ifoodreal.com/wp-content/uploads/2018/02/instant-pot-frozen-chicken-2
@@ -20,7 +22,7 @@ export class RecipeListComponent implements OnInit {
       .recipeService
       .getRecipes();
 
-    this.recipeService.recipeChanged.subscribe((recipes: Recipe[])=>{
+   this.subscription = this.recipeService.recipeChanged.subscribe((recipes: Recipe[])=>{
       this.recipes=recipes;
     });
   }
@@ -31,6 +33,10 @@ export class RecipeListComponent implements OnInit {
     this
       .router
       .navigate(['new'], {relativeTo: this.route});
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
