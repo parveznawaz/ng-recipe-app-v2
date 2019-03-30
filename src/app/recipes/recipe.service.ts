@@ -9,14 +9,14 @@ export class RecipeService {
   recipeChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
-    new Recipe('A Test Recipe',
-    'This is simply a test',
+    new Recipe('Rotisserie chicken',
+    'Great rotisserie chicken',
     'https://ifoodreal.com/wp-content/uploads/2018/02/instant-pot-frozen-chicken-2.jpg',
-    [new Ingredient("Meat",1), new Ingredient("Lamb",2)]),
-    new Recipe('Another Test Recipe',
-    'This is simply a test',
-    'https://ifoodreal.com/wp-content/uploads/2018/02/instant-pot-frozen-chicken-2.jpg',
-    [new Ingredient("Meat",10), new Ingredient("Lamb",20)])
+    [new Ingredient("Chicken",1), new Ingredient("Spice",2)]),
+    new Recipe('Garlic Spaghetti',
+    'Very testy spaghetti',
+    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/garlic-spaghetti-horizontal-1539203011.jpg',
+    [new Ingredient("Flour",10), new Ingredient("Garlic",20)])
   ];
 
   constructor(private shoppingListService: ShoppingListService){}
