@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
+import { isUndefined, isNull } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -43,8 +44,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    console.log(this.token)
-    return this.token !== undefined;
+    return !isUndefined(this.token);
   }
 
 }
