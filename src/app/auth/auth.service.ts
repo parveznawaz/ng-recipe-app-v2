@@ -44,7 +44,12 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return !isUndefined(this.token);
+    return !isUndefined(this.token) && !isNull(this.token);
+  }
+
+  logout() {
+    firebase.auth().signOut();
+    this.token=null;
   }
 
 }
