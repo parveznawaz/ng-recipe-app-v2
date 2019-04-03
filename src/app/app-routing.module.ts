@@ -1,8 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {ShoppingListComponent} from './shopping-list/shopping-list.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 
 const routes : Routes = [
@@ -15,14 +13,6 @@ const routes : Routes = [
     path: 'shopping-list',
     component: ShoppingListComponent,
     canActivate: [AuthGuardService]
-  },
-  {
-    path: 'signup',
-    component: SignupComponent
-  },
-  {
-    path: 'signin',
-    component: SigninComponent
   }
 ];
 
