@@ -10,16 +10,8 @@ export class DataStorageService {
   constructor(private httpClient : HttpClient, private recipeService : RecipeService, private authService : AuthService) {}
 
   storeRecipes() {
-    const token = this
-      .authService
-      .getToken();
-    //const heeader=new HttpHeaders().set('Authorization','Bearer aflajfl');
-    const params = new HttpParams().set('auth', token);
-    // return this   .httpClient
-    // .put('https://ng-recipe-book-c7b60.firebaseio.com/recipes.json',
-    // this.recipeService.getRecipes(),   {     observe: 'body',     params: params
-    //    //headers:heeader   });
-
+     
+    
     const req = new HttpRequest('PUT',
     'https://ng-recipe-book-c7b60.firebaseio.com/recipes.json',
     this.recipeService.getRecipes(),
@@ -32,9 +24,7 @@ export class DataStorageService {
   }
 
   getRecipes() {
-    const token = this
-      .authService
-      .getToken();
+    
     this.httpClient.get < Recipe[] > ('https://ng-recipe-book-c7b60.firebaseio.com/recipes.json', {
       observe: 'body',
       responseType: 'json'
