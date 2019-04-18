@@ -7,6 +7,7 @@ import {HttpClient,HttpRequest} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromRecipe from './recipe.reducer';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RecipeEffects {

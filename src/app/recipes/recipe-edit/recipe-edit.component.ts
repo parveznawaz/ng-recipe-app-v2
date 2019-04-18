@@ -4,7 +4,6 @@ import {Form, FormGroup, FormControl, FormArray, Validators} from '@angular/form
 import * as fromRecipe from '../store/recipe.reducer';
 import * as RecipeActions from '../store/recipe.actions';
 import { Store } from '@ngrx/store';
-import { Recipe } from '../recipe.model';
 
 @Component({selector: 'app-recipe-edit', templateUrl: './recipe-edit.component.html', styleUrls: ['./recipe-edit.component.css']})
 export class RecipeEditComponent implements OnInit {

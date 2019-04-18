@@ -1,10 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as ShoppingListActions from '../../shopping-list/store/shopping-list.actions';
-import * as fromApp from '../../store/app.reducers';
 import { Observable } from 'rxjs';
 import * as fromRecipe from '../store/recipe.reducer';
 import * as RecipeActions from '../store/recipe.actions';
